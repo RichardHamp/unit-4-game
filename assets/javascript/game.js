@@ -1,44 +1,89 @@
 //Global Variables
+$(document).ready(function () {
 
-var goalNum = 0;
-var gemOneValue = 0;
-var gemTwoValue = 0;
-var gemThreeValue = 0;
-var currentScore = 0;
-var losses = 0;
-var wins = 0;
+    var goalNum = 0;
+    var gemOneValue = 0;
+    var gemTwoValue = 0;
+    var gemThreeValue = 0;
+    var gemFourValue = 0;
+    var currentScore = 0;
+    var losses = 0;
+    var wins = 0;
 
-function randomGoal(){
-    $(goalNum).text(Math.floor(Math.random()*120)+19);
+    function randomGoal() {
+        var i = Math.floor(Math.random() * (101) + 19);
+        return (i);
     }
 
-// function randomNum(gemOneValue){
-//     $(gemOneValue).text(Math.floor(Math.random()*12)+1);
-//     }
+    function randomNum() {
+        var i = Math.floor(Math.random() * (11) + 1);
+        return (i);
+    }
 
-// function lose() {
-//     document.getElementById(losses);
-//     losses ++;
-//     goalNum = randomGoal(goalNum);
-//     gemOneValue = randomNum(gemOneValue);
-//     gemTwoValue = randomNum(gemTwoValue);
-//     gemThreeValue = randomNum(gemThreeValue);
-// }
+    function lose() {
+        document.getElementById(losses);
+        losses++;
+        goalNum = randomGoal(goalNum);
+        gemOneValue = randomNum(gemOneValue);
+        gemTwoValue = randomNum(gemTwoValue);
+        gemThreeValue = randomNum(gemThreeValue);
+        gemFourValue = randomNum(gemFourValue);
+        currentScore = 0;
+        alert ("loser");
+    }
 
-// function win(){
-//     document.getElementById(wins);
-//     wins ++;
-//     goalNum = randomGoal();
-//     gemOneValue = randomNum();
-//     gemTwoValue = randomNum();
-//     gemThreeValue = randomNum();
-// }
+    function win() {
+        document.getElementById(wins);
+        wins++;
+        goalNum = randomGoal();
+        gemOneValue = randomNum();
+        gemTwoValue = randomNum();
+        gemThreeValue = randomNum();
+        gemFourValue = randomNum();
+        currentScore = 0;
+        alert ("winner");
+    }
 
-randomGoal(goalNum);
-console.log(goalNum);
+    function checkNum(i) {
+        currentScore = currentScore + (i);
+        $("#score").html(currentScore);
+        console.log (score);
+        console.log(currentScore);
+        if (currentScore === goalNum) {
+            win()
+        }
+        else if (currentScore > goalNum) {
+            lose()
+        }
+        console.log("currentOne" + (currentScore))
+    }
 
-// randomNum(gemOneValue);
-// console.log(gemOneValue);
+    $("#gem1").on("click", function () {
+        checkNum(gemOneValue);
+        console.log("One_" + (gemOneValue));
+        console.log("current" + (currentScore));
+        console.log("goal_" + (goalNum));
+    })
 
-// lose();
-// win();
+    $("#gem2").on("click", function () {
+        checkNum(gemTwoValue);
+        console.log("Two_" + (gemTwoValue));
+        console.log("current" + (currentScore));
+        console.log("goal_" + (goalNum));
+    })
+
+    $("#gem3").on("click", function () {
+        checkNum(gemThreeValue);
+        console.log("Three_" + (gemThreeValue));
+        console.log("current" + (currentScore));
+        console.log("goal_" + (goalNum));
+    })
+
+    $("#gem4").on("click", function () {
+        checkNum(gemFourValue);
+        console.log("Four_" + (gemFourValue));
+        console.log("current" + (currentScore));
+        console.log("goal_" + (goalNum));
+    })
+
+})
