@@ -46,15 +46,18 @@ $(document).ready(function () {
 
     function checkNum(i) {
         currentScore = currentScore + (i);
-        $("#score").html(currentScore);
-        console.log (score);
+        $("#tScore").html(currentScore);
         console.log(currentScore);
         if (currentScore === goalNum) {
             win()
+            $("#wins").html(wins++);
         }
         else if (currentScore > goalNum) {
             lose()
+            $("#losses").html(losses++);
         }
+        $("#goal").html(goalNum);
+        
         console.log("currentOne" + (currentScore))
     }
 

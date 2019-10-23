@@ -11,56 +11,64 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<main>
 
-    <div class="row container">
-        <h1 id="title">Crystals Collector!</h1>
-    </div>
-
-    <div class="row container col-6" id="text">
-
-        <p>You will be given a random number at the start of the game.</p>
-
-        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your
-            total score.</p>
-
-        <p>You win the game by matching your total score to a random number., you lose the game if your total score
-            goes
-            above the random number.</p>
-
-        <p>The value of each crystal is hidden from you until you click on it.</p>
-
-        <p>Each time when hte game starts, the game will change the values of each crystal</p>
-
-    </div>
-
+<body>
     <div class="container">
+        <div class="row" id="titleRow">
+            <h1 class="col-md-7 text-center" id="title">Crystals Collector!</h1>
+        </div>
+
         <div class="row">
-            <div class="col-sm" id="goalNumber">
-                <div id="score">11</div>
+            <div class="col-md-7" id="instructions">
+
+                <p>You will be given a random number at the start of the game.</p>
+
+                <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to
+                    your
+                    total score.</p>
+
+                <p>You win the game by matching your total score to a random number., you lose the game if your total
+                    score
+                    goes
+                    above the random number.</p>
+
+                <p>The value of each crystal is hidden from you until you click on it.</p>
+
+                <p>Each time when the game starts, the game will change the values of each crystal.</p>
             </div>
         </div>
 
-        <div class="row container col-sm" id=winLoss>
-            <div id=winLose>
-                <div id="wins">22</div>
-                <div id="losses">33</div>
+
+        <div class="row">
+            <div class="col-3" id="goalNumber">
+                Goal Number:
+                <div id="goal">0</div>
+            </div>
+
+            <div class="col-3" id="winLose">
+                Wins:
+                <div id="wins">0</div>
+                <br>
+                Losses:
+                <div id="losses">0</div>
             </div>
         </div>
-    </div>
 
-    <div class="buttons">
-        <img class="image" id="gem1" src="assets/images/gem1.png">
-        <img class="image" id="gem2" src="assets/images/gem2.jpg">
-        <img class="image" id="gem3" src="assets/images/gem3.jpg">
-        <img class="image" id="gem4" src="assets/images/gem4.jpg">
-    </div>
 
-    <div class="row">
-        <div class="col-sm" id="totalScore">
-            <div></div>
+
+        <div class="buttons row">
+            <img class="image" id="gem1" src="assets/images/gem1.png">
+            <img class="image" id="gem2" src="assets/images/gem2.jpg">
+            <img class="image" id="gem3" src="assets/images/gem3.jpg">
+            <img class="image" id="gem4" src="assets/images/gem4.jpg">
         </div>
-    </div>
 
+        <div class="row">
+            <div class="col-md-3" id="totalScore">
+                    Score:
+                <div id=tScore>00</div>
+            </div>
+        </div>
+</body>
 
-</main>
+</html>

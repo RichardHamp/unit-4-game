@@ -2,34 +2,38 @@ body {
     background: repeating-linear-gradient( -45deg, #000 0px, #000 5px, #333 6px, #333 11px, #000 12px);}
 
 #title {
-    background:orange;
-    margin: 2%;
+   background:orange;
+   padding: 2%;
+   margin:1%;
 }
 
-#text {
+#instructions {
     background: wheat;
-    margin-left: 2%;
+    padding:2%;
+    margin:1%;
 }
 
 #goalNumber {
-    margin: 2%;
-    width: 20%;
-    background: green;
+    background: lightgreen;
+    padding: 2%;
+    margin:1%;
 }
 
-#winLoss {
-    margin: 2%;
-    background: blue;
+#winLose {
+    padding: 2%;
+    background: lightblue;
+    margin:1%;
+    margin:1%;
 }
 
 .image {
-    margin-left: 2%;
+    margin:1%;
     width: 100px;
     height: 100px;
 }
 
 #totalScore {
     background:teal;
-    width: 100%;
-    height: 100%;
+    padding:2%;
+    margin:1%;
 }
