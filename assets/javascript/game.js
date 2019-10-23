@@ -1,4 +1,4 @@
-//Global Variables
+//global Variables
 $(document).ready(function () {
 
     var goalNum = 0;
@@ -10,83 +10,75 @@ $(document).ready(function () {
     var losses = 0;
     var wins = 0;
 
+//sets goal number randomly from 19-120
     function randomGoal() {
         var i = Math.floor(Math.random() * (101) + 19);
         return (i);
     }
 
+//sets gem numbers randomly from 1-12
     function randomNum() {
         var i = Math.floor(Math.random() * (11) + 1);
         return (i);
     }
 
-    function lose() {
-        document.getElementById(losses);
-        losses++;
+//initializes game and resets variables
+    function start() {
         goalNum = randomGoal(goalNum);
         gemOneValue = randomNum(gemOneValue);
         gemTwoValue = randomNum(gemTwoValue);
         gemThreeValue = randomNum(gemThreeValue);
         gemFourValue = randomNum(gemFourValue);
         currentScore = 0;
-        alert ("loser");
     }
 
+//increases losses counter, alerts player, and resets for next game
+    function lose() {
+        losses++;
+        $("#losses").html(losses);
+        alert("Here's your participation ribbon.");
+        start();
+        $("#tScore").html(currentScore)
+    }
+
+//increases win counter, alerts player, and resets for next game
     function win() {
-        document.getElementById(wins);
         wins++;
-        goalNum = randomGoal();
-        gemOneValue = randomNum();
-        gemTwoValue = randomNum();
-        gemThreeValue = randomNum();
-        gemFourValue = randomNum();
-        currentScore = 0;
-        alert ("winner");
+        $("#wins").html(wins);
+        alert("I hope winning this game isn't the high point of your day.");
+        start();
+        $("#tScore").html(currentScore)
     }
 
+//compares current score with the goal number and pushes win() or lose() as appropriate
     function checkNum(i) {
         currentScore = currentScore + (i);
-        $("#tScore").html(currentScore);
-        console.log(currentScore);
-        if (currentScore === goalNum) {
-            win()
-            $("#wins").html(wins++);
+        if (currentScore > 0) {
+            $("#tScore").html(currentScore);
+            if (currentScore === goalNum) {
+                win();
+            }
+            else if (currentScore > goalNum) {
+                lose();
+            }
+            $("#goal").html(goalNum);
         }
-        else if (currentScore > goalNum) {
-            lose()
-            $("#losses").html(losses++);
-        }
-        $("#goal").html(goalNum);
-        
-        console.log("currentOne" + (currentScore))
     }
 
+//click functions for gems
     $("#gem1").on("click", function () {
         checkNum(gemOneValue);
-        console.log("One_" + (gemOneValue));
-        console.log("current" + (currentScore));
-        console.log("goal_" + (goalNum));
     })
-
     $("#gem2").on("click", function () {
         checkNum(gemTwoValue);
-        console.log("Two_" + (gemTwoValue));
-        console.log("current" + (currentScore));
-        console.log("goal_" + (goalNum));
     })
-
     $("#gem3").on("click", function () {
         checkNum(gemThreeValue);
-        console.log("Three_" + (gemThreeValue));
-        console.log("current" + (currentScore));
-        console.log("goal_" + (goalNum));
     })
-
     $("#gem4").on("click", function () {
         checkNum(gemFourValue);
-        console.log("Four_" + (gemFourValue));
-        console.log("current" + (currentScore));
-        console.log("goal_" + (goalNum));
     })
 
+//initializes game
+start();
 })
